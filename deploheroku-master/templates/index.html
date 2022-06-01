@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>diabetes prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <style>
+p {
+  background-image: url('bgbg.jpeg');
+}
+</style>
+ <div class="login">
+	<h1>Predict diabetes</h1>
+     <h3> Enter the following values to predict if person has diabetes </h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="pregnancies" placeholder="Pregnancies" required="required" />
+        <input type="text" name="Glucose" placeholder="Glucose" required="required" />
+		<input type="text" name="bloodpressure" placeholder="BP" required="required" />
+    <input type="text" name="skinthick" placeholder="SkinThickness" required="required" />
+        <input type="text" name="insulin" placeholder="Insulin Lvl" required="required" />
+    <input type="text" name="bmi" placeholder="BMI" required="required" />
+    <input type="text" name="diabetespedigree" placeholder="Diabetes pedigree" required="required" />
+        <input type="text" name="age" placeholder="Age" required="required" />
+   
+
+        <button type="submit" class="btn">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
